@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import './MemeForm.css';
 
-const MemeForm = ({ makeMeme }) => {
+const MemeForm = () => {
   const INITIAL_STATE = { imageUrl: '', topText: '', bottomText: '' };
   const [ formData, setFormData ] = useState(INITIAL_STATE);
+
+  const dispatch = useDispatch();
+  const add = (meme) => dispatch({ type: 'ADD_MEME', payload: meme });
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -17,7 +21,7 @@ const MemeForm = ({ makeMeme }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const meme = { ...formData, id: nanoid() };
-    makeMeme(meme);
+    add(meme);
     setFormData(INITIAL_STATE);
   };
 

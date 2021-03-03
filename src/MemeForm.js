@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import './MemeForm.css';
 
 const MemeForm = ({ makeMeme }) => {
   const INITIAL_STATE = { imageUrl: '', topText: '', bottomText: '' };
@@ -21,10 +22,10 @@ const MemeForm = ({ makeMeme }) => {
   };
 
   return (
-    <div>
+    <div className="MemeForm">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="imageUrl">
-          Image URL:{' '}
+        <div className="MemeForm-group">
+          <label htmlFor="imageUrl">Image URL:</label>
           <input
             name="imageUrl"
             id="imageUrl"
@@ -34,9 +35,9 @@ const MemeForm = ({ makeMeme }) => {
             onChange={handleChange}
             required
           />
-        </label>
-        <label htmlFor="topText">
-          Top text:{' '}
+        </div>
+        <div className="MemeForm-group">
+          <label htmlFor="topText">Top text:</label>
           <input
             name="topText"
             id="topText"
@@ -45,9 +46,9 @@ const MemeForm = ({ makeMeme }) => {
             value={formData.topText}
             onChange={handleChange}
           />
-        </label>
-        <label htmlFor="bottomText">
-          Bottom text:{' '}
+        </div>
+        <div className="MemeForm-group">
+          <label htmlFor="bottomText">Bottom text:</label>
           <input
             name="bottomText"
             id="bottomText"
@@ -56,8 +57,9 @@ const MemeForm = ({ makeMeme }) => {
             value={formData.bottomText}
             onChange={handleChange}
           />
-        </label>
-        <input type="submit" value="Create Meme" />
+        </div>
+
+        <button>Create Meme</button>
       </form>
     </div>
   );

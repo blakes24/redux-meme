@@ -1,0 +1,25 @@
+.MemeForm {
+  display: flex;
+  justify-content: center;
+}
+.MemeForm form {
+  width: 80vw;
+}
+
+.MemeForm-group {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.MemeForm label {
+  text-align: left;
+  width: 150px;
+  padding: 5px;
+}
+
+.MemeForm input {
+  width: 100%;
+  flex-grow: 1;
+  padding: 5px;
+}
